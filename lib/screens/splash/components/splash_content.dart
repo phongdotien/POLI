@@ -24,7 +24,7 @@ class _SplashContentState extends State<SplashContent> {
           "TOKOTO",
           style: TextStyle(
             fontSize: 32,
-            color: kPrimaryColor,
+            color: Color(0xFFFF7643),
             fontWeight: FontWeight.bold,
           ),
         ),

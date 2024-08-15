@@ -32,7 +32,7 @@ class RoundedIconBtn extends StatelessWidget {
       ),
       child: TextButton(
         style: TextButton.styleFrom(
-          foregroundColor: kPrimaryColor,
+          foregroundColor: Color(0xFFFF7643),
           padding: EdgeInsets.zero,
           backgroundColor: Colors.white,
           shape:

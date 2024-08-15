@@ -59,13 +59,13 @@ class _SplashScreenState extends State<SplashScreen> {
                         children: List.generate(
                           splashData.length,
                           (index) => AnimatedContainer(
-                            duration: Duration(milliseconds: 250),
+                            duration: const Duration(milliseconds: 250),
                             margin: const EdgeInsets.only(right: 5),
                             height: 6,
                             width: currentPage == index ? 20 : 6,
                             decoration: BoxDecoration(
                               color: currentPage == index
-                                  ? Color(0xFFFF7643)
+                                  ? const Color(0xFFFF7643)
                                   : const Color(0xFFD8D8D8),
                               borderRadius: BorderRadius.circular(3),
                             ),
@@ -79,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
-                          backgroundColor: Color(0xFFFF7643),
+                          backgroundColor: const Color(0xFFFF7643),
                           foregroundColor: Colors.white,
                           minimumSize: const Size(double.infinity, 48),
                           shape: const RoundedRectangleBorder(

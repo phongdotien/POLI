@@ -56,7 +56,7 @@ class _InitScreenState extends State<InitScreen> {
             activeIcon: SvgPicture.asset(
               "assets/icons/Shop Icon.svg",
               colorFilter: const ColorFilter.mode(
-                kPrimaryColor,
+                Color(0xFFFF7643),
                 BlendMode.srcIn,
               ),
             ),
@@ -73,7 +73,7 @@ class _InitScreenState extends State<InitScreen> {
             activeIcon: SvgPicture.asset(
               "assets/icons/Heart Icon.svg",
               colorFilter: const ColorFilter.mode(
-                kPrimaryColor,
+                Color(0xFFFF7643),
                 BlendMode.srcIn,
               ),
             ),
@@ -90,7 +90,7 @@ class _InitScreenState extends State<InitScreen> {
             activeIcon: SvgPicture.asset(
               "assets/icons/Chat bubble Icon.svg",
               colorFilter: const ColorFilter.mode(
-                kPrimaryColor,
+                Color(0xFFFF7643),
                 BlendMode.srcIn,
               ),
             ),
@@ -107,7 +107,7 @@ class _InitScreenState extends State<InitScreen> {
             activeIcon: SvgPicture.asset(
               "assets/icons/User Icon.svg",
               colorFilter: const ColorFilter.mode(
-                kPrimaryColor,
+                Color(0xFFFF7643),
                 BlendMode.srcIn,
               ),
             ),

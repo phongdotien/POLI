@@ -43,7 +43,7 @@ class CartCard extends StatelessWidget {
               TextSpan(
                 text: "\$${cart.product.price}",
                 style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: kPrimaryColor),
+                    fontWeight: FontWeight.w600, color: Color(0xFFFF7643)),
                 children: [
                   TextSpan(
                       text: " x${cart.numOfItem}",

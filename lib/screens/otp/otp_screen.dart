@@ -36,7 +36,7 @@ class OtpScreen extends StatelessWidget {
                       duration: const Duration(seconds: 30),
                       builder: (_, dynamic value, child) => Text(
                         "00:${value.toInt()}",
-                        style: const TextStyle(color: kPrimaryColor),
+                        style: const TextStyle(color: Color(0xFFFF7643)),
                       ),
                     ),
                   ],

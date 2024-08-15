@@ -73,13 +73,13 @@ class ProductDescription extends StatelessWidget {
                 Text(
                   "See More Detail",
                   style: TextStyle(
-                      fontWeight: FontWeight.w600, color: kPrimaryColor),
+                      fontWeight: FontWeight.w600, color: Color(0xFFFF7643)),
                 ),
                 SizedBox(width: 5),
                 Icon(
                   Icons.arrow_forward_ios,
                   size: 12,
-                  color: kPrimaryColor,
+                  color: Color(0xFFFF7643),
                 ),
               ],
             ),

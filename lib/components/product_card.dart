@@ -51,7 +51,7 @@ class ProductCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: kPrimaryColor,
+                    color: Color(0xFFFF7643),
                   ),
                 ),
                 InkWell(
@@ -63,7 +63,7 @@ class ProductCard extends StatelessWidget {
                     width: 24,
                     decoration: BoxDecoration(
                       color: product.isFavourite
-                          ? kPrimaryColor.withOpacity(0.15)
+                          ? Color(0xFFFF7643).withOpacity(0.15)
                           : kSecondaryColor.withOpacity(0.1),
                       shape: BoxShape.circle,
                     ),
