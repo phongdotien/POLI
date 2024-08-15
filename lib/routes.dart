@@ -18,7 +18,7 @@ import 'screens/splash/splash_screen.dart';
 // All our routes will be available here
 final Map<String, WidgetBuilder> routes = {
   InitScreen.routeName: (context) => const InitScreen(),
-  SplashScreen.routeName: (context) => const SplashScreen(),
+  // SplashScreen.routeName: (context) => const SplashScreen(),
   SignInScreen.routeName: (context) => const SignInScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),

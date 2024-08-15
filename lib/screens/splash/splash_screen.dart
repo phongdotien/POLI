@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-import '../sign_in/sign_in_screen.dart';
-import 'components/splash_content.dart';
-
 class SplashScreen extends StatefulWidget {
-  static String routeName = "/splash";
-
   const SplashScreen({super.key});
 
   @override
@@ -18,16 +12,16 @@ class _SplashScreenState extends State<SplashScreen> {
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Tokoto, Let’s shop!",
-      "image": "assets/images/splash_1.png"
+      "image": "https://i.postimg.cc/mhhVywp9/splash-1.png"
     },
     {
       "text":
           "We help people conect with store \naround United State of America",
-      "image": "assets/images/splash_2.png"
+      "image": "https://i.postimg.cc/PNcy3w0R/splash-2.png"
     },
     {
       "text": "We show the easy way to shop. \nJust stay at home with us",
-      "image": "assets/images/splash_3.png"
+      "image": "https://i.postimg.cc/wRtVxqR2/splash-3.png"
     },
   ];
   @override
@@ -37,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            children: <Widget>[
+            children: [
               Expanded(
                 flex: 3,
                 child: PageView.builder(
@@ -65,13 +59,13 @@ class _SplashScreenState extends State<SplashScreen> {
                         children: List.generate(
                           splashData.length,
                           (index) => AnimatedContainer(
-                            duration: kAnimationDuration,
+                            duration: Duration(milliseconds: 250),
                             margin: const EdgeInsets.only(right: 5),
                             height: 6,
                             width: currentPage == index ? 20 : 6,
                             decoration: BoxDecoration(
                               color: currentPage == index
-                                  ? kPrimaryColor
+                                  ? Color(0xFFFF7643)
                                   : const Color(0xFFD8D8D8),
                               borderRadius: BorderRadius.circular(3),
                             ),
@@ -81,8 +75,17 @@ class _SplashScreenState extends State<SplashScreen> {
                       const Spacer(flex: 3),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, SignInScreen.routeName);
+                          // Navigate to Sign In Screen or any other screen
                         },
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Color(0xFFFF7643),
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size(double.infinity, 48),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                          ),
+                        ),
                         child: const Text("Continue"),
                       ),
                       const Spacer(),
@@ -94,6 +97,48 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class SplashContent extends StatefulWidget {
+  const SplashContent({
+    Key? key,
+    this.text,
+    this.image,
+  }) : super(key: key);
+  final String? text, image;
+
+  @override
+  State<SplashContent> createState() => _SplashContentState();
+}
+
+class _SplashContentState extends State<SplashContent> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        const Spacer(),
+        const Text(
+          "TOKOTO",
+          style: TextStyle(
+            fontSize: 32,
+            color: Color(0xFFFF7643),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          widget.text!,
+          textAlign: TextAlign.center,
+        ),
+        const Spacer(flex: 2),
+        Image.network(
+          widget.image!,
+          fit: BoxFit.contain,
+          height: 265,
+          width: 235,
+        ),
+      ],
     );
   }
 }
