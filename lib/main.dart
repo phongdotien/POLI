@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/screens/sign_in/confirm_password_screen.dart';
 import 'package:shop_app/screens/sign_in/forgot_password_screen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       // theme: AppTheme.lightTheme(context),
       // initialRoute: SplashScreen.routeName,
       // routes: routes,
-      home: ConfirmPasswordScreen(),
+      home: OtpScreen(),
     );
   }
 }
