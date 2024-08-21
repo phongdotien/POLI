@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
-  static String routeName = "/home";
-
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
