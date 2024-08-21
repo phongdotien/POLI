@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/home/home_v2.dart';
-import 'package:shop_app/screens/products/products_screen.dart';
+import 'package:shop_app/screens/bottom_nav_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       // theme: AppTheme.lightTheme(context),
       // initialRoute: SplashScreen.routeName,
       // routes: routes,
-      home: ProductsScreen(),
+      home: BottomNavScreen(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/init_screen.dart';
+import 'package:shop_app/screens/bottom_nav_screen.dart';
 
 class LoginSuccessScreen extends StatelessWidget {
   static String routeName = "/login_success";
@@ -32,9 +32,7 @@ class LoginSuccessScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, InitScreen.routeName);
-              },
+              onPressed: () {},
               child: const Text("Back to home"),
             ),
           ),
