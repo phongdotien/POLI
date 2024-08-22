@@ -72,7 +72,7 @@ class _SmallProductImageState extends State<SmallProductImage> {
     return GestureDetector(
       onTap: widget.press,
       child: AnimatedContainer(
-        duration: defaultDuration,
+        duration: Duration(milliseconds: 250),
         margin: const EdgeInsets.only(right: 16),
         padding: const EdgeInsets.all(8),
         height: 48,
