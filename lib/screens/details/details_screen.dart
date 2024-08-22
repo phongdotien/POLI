@@ -163,7 +163,7 @@ class _ProductImagesState extends State<ProductImages> {
           width: 238,
           child: AspectRatio(
             aspectRatio: 1,
-            child: Image.asset(widget.product.images[selectedImage]),
+            child: Image.network(widget.product.images[selectedImage]),
           ),
         ),
         // SizedBox(height: 20),
@@ -222,7 +222,7 @@ class _SmallProductImageState extends State<SmallProductImage> {
               color: const Color(0xFFFF7643)
                   .withOpacity(widget.isSelected ? 1 : 0)),
         ),
-        child: Image.asset(widget.image),
+        child: Image.network(widget.image),
       ),
     );
   }
@@ -463,10 +463,10 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "https://i.postimg.cc/c19zpJ6f/Image-Popular-Product-1.png",
+      "https://i.postimg.cc/zBLc7fcF/ps4-console-white-2.png",
+      "https://i.postimg.cc/KYpWtTJY/ps4-console-white-3.png",
+      "https://i.postimg.cc/YSCV4RNV/ps4-console-white-4.png"
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -484,7 +484,7 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "https://i.postimg.cc/CxD6nH74/Image-Popular-Product-2.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -501,7 +501,7 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "https://i.postimg.cc/1XjYwvbv/glap.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -514,6 +514,24 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 4,
+    images: [
+      "https://i.postimg.cc/d1QWXMYW/Image-Popular-Product-3.png",
+    ],
+    colors: [
+      const Color(0xFFF6625E),
+      const Color(0xFF836DB8),
+      const Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Gloves XC Omega - Polygon",
+    price: 36.55,
+    description: description,
+    rating: 4.1,
+    isFavourite: false,
     isPopular: true,
   ),
 ];

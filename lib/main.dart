@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       // theme: AppTheme.lightTheme(context),
       // initialRoute: SplashScreen.routeName,
       // routes: routes,
-      home: FavoriteProductsScreen(),
+      home: ProductDetailsScreen(),
     );
   }
 }
