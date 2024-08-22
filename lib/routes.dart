@@ -20,6 +20,6 @@ final Map<String, WidgetBuilder> routes = {
   // HomeScreen.routeName: (context) => const HomeScreen(),
   // ProductsScreen.routeName: (context) => const ProductsScreen(),
   // DetailsScreen.routeName: (context) => const DetailsScreen(),
-  CartScreen.routeName: (context) => const CartScreen(),
+  // CartScreen.routeName: (context) => const CartScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
 };

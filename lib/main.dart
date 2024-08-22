@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/bottom_nav_screen.dart';
-import 'package:shop_app/screens/details/details_screen.dart';
-import 'package:shop_app/screens/favorite/favorite_screen.dart';
+import 'package:shop_app/screens/cart/cart_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       // theme: AppTheme.lightTheme(context),
       // initialRoute: SplashScreen.routeName,
       // routes: routes,
-      home: ProductDetailsScreen(),
+      home: CartScreen(),
     );
   }
 }
