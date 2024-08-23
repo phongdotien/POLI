@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/cart/cart_screen.dart';
+import 'package:shop_app/screens/profile/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       // theme: AppTheme.lightTheme(context),
       // initialRoute: SplashScreen.routeName,
       // routes: routes,
-      home: CartScreen(),
+      home: ProfileScreen(),
     );
   }
 }

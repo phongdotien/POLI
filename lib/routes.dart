@@ -1,10 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-import 'screens/cart/cart_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
-import 'screens/details/details_screen.dart';
 import 'screens/login_success/login_success_screen.dart';
-import 'screens/profile/profile_screen.dart';
 
 // We use name route
 // All our routes will be available here
@@ -21,5 +18,5 @@ final Map<String, WidgetBuilder> routes = {
   // ProductsScreen.routeName: (context) => const ProductsScreen(),
   // DetailsScreen.routeName: (context) => const DetailsScreen(),
   // CartScreen.routeName: (context) => const CartScreen(),
-  ProfileScreen.routeName: (context) => const ProfileScreen(),
+  // ProfileScreen.routeName: (context) => const ProfileScreen(),
 };
