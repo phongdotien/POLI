@@ -20,7 +20,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
     Onbord(
       image: "assets/Illustration/Illustration-0.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_0.png",
-      title: "Find the item you’ve \nbeen looking for",
+      title: "Find the item you’ve \nbeen looking forrrr",
       description:
           "Here you’ll see rich varieties of goods, carefully classified for seamless browsing experience.",
     ),

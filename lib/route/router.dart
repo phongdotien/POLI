@@ -86,7 +86,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   );
     case passwordRecoveryScreenRoute:
       return MaterialPageRoute(
-        builder: (context) => const PasswordRecoveryScreen(),
+        builder: (context) => const ForgotPasswordScreen(),
       );
     // case verificationMethodScreenRoute:
     //   return MaterialPageRoute(
