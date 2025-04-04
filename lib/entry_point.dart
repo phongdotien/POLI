@@ -14,7 +14,7 @@ class EntryPoint extends StatefulWidget {
 class _EntryPointState extends State<EntryPoint> {
   final List _pages = const [
     HomeScreen(),
-    DiscoverScreen(),
+    HistoryScreen(),
     BookmarkScreen(),
     // EmptyCartScreen(), // if Cart is empty
     CartScreen(),
@@ -55,7 +55,7 @@ class _EntryPointState extends State<EntryPoint> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, searchScreenRoute);
+              // Navigator.pushNamed(context, searchScreenRoute);
             },
             icon: SvgPicture.asset(
               "assets/icons/Search.svg",
@@ -67,7 +67,7 @@ class _EntryPointState extends State<EntryPoint> {
           ),
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, notificationsScreenRoute);
+              // Navigator.pushNamed(context, notificationsScreenRoute);
             },
             icon: SvgPicture.asset(
               "assets/icons/Notification.svg",
@@ -115,15 +115,15 @@ class _EntryPointState extends State<EntryPoint> {
           unselectedItemColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Shop.svg"),
-              activeIcon: svgIcon("assets/icons/Shop.svg", color: primaryColor),
-              label: "Shop",
+              icon: svgIcon("assets/icons/game_nobg.svg"),
+              activeIcon: svgIcon("assets/icons/game_nobg.svg", color: primaryColor),
+              label: "Game",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Category.svg"),
               activeIcon:
                   svgIcon("assets/icons/Category.svg", color: primaryColor),
-              label: "Discover",
+              label: "History",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Bookmark.svg"),

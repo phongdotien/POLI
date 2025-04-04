@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "450714306823",
+    "project_id": "poli-aa55e",
+    "storage_bucket": "poli-aa55e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450714306823:android:5ce2c8977289a46e075da2",
+        "android_client_info": {
+          "package_name": "com.example.shop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPm0a2Lkt6SoeOfuQc5LAgr-_sANsMiAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

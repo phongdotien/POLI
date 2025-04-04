@@ -5,8 +5,8 @@ import 'package:shop/screens/search/views/components/search_form.dart';
 
 import 'components/expansion_category.dart';
 
-class DiscoverScreen extends StatelessWidget {
-  const DiscoverScreen({super.key});
+class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class DiscoverScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding / 2),
               child: Text(
-                "Categories",
+                "Categoriess",
                 style: Theme.of(context).textTheme.titleSmall,
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/entry_point.dart';
+import 'package:shop/screens/make_game/views/make_game_screen.dart';
 
 import 'screen_export.dart';
 
@@ -75,6 +76,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case logInScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const LoginScreen(),
+      );
+    case createGameRoom1vs1ScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const MakeGameScreen(),
       );
     case signUpScreenRoute:
       return MaterialPageRoute(
@@ -161,7 +166,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   );
     case discoverScreenRoute:
       return MaterialPageRoute(
-        builder: (context) => const DiscoverScreen(),
+        builder: (context) => const HistoryScreen(),
       );
     case onSaleScreenRoute:
       return MaterialPageRoute(
