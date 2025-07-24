@@ -3,6 +3,7 @@ const String notificationPermissionScreenRoute = "notification_permission";
 const String preferredLanuageScreenRoute = "preferred_language";
 const String logInScreenRoute = "login";
 const String createGameRoom1vs1ScreenRoute = "create_game_room_1vs1";
+const String joinGameRoom1vs1ScreenRoute = "join_game_room_1vs1";
 const String createGameRoom2vs2ScreenRoute = "create_game_room_2vs2";
 const String signUpScreenRoute = "signup";
 const String profileSetupScreenRoute = "profile_setup";

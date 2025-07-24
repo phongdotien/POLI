@@ -1,9 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
 import 'package:shop/constants.dart';
+import 'package:shop/route/route_constants.dart';
 import 'package:shop/screens/home/views/components/rank_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String rankSingle = "Loading...";
+  int scoreSingle = 0;
+  String rankDual = "Loading...";
+  int scoreDual = 0;
+  final TextEditingController _roomIdController =
+      TextEditingController(); // Controller for room ID input
+
+  // Fetch user data from Firestore
+  Future<void> _fetchUserData() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        DocumentSnapshot userDoc = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .get();
+
+        if (userDoc.exists) {
+          setState(() {
+            rankSingle = userDoc['rank_single'].toString();
+            scoreSingle = userDoc['score_single'];
+            rankDual = userDoc['rank_dual'].toString();
+            scoreDual = userDoc['score_dual'];
+          });
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          rankSingle = "Error";
+          scoreSingle = 0;
+          rankDual = "Error";
+          scoreDual = 0;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Error fetching user data")),
+        );
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData(); // Fetch user data when the screen is initialized
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +79,20 @@ class HomeScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(height: defaultPadding / 2),
-                    const Row(
+                    // Display the rank cards with the fetched data
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        RankCard(title: "Singles Rank", rank: "A2", score: 100),  // Example rank and score
-                        RankCard(title: "Doubles Rank", rank: "B1", score: 85),  // Example rank and score
+                        RankCard(
+                          title: "Singles Rank",
+                          rank: rankSingle, // Display fetched rank
+                          score: scoreSingle, // Display fetched score
+                        ),
+                        RankCard(
+                          title: "Doubles Rank",
+                          rank: rankDual, // Display fetched rank
+                          score: scoreDual, // Display fetched score
+                        ),
                       ],
                     ),
                   ],
@@ -35,7 +100,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
-            
+
             // Mục 2: Game play với 2 cách chơi (1v1 và 2v2)
             SliverToBoxAdapter(
               child: Padding(
@@ -48,29 +113,71 @@ class HomeScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(height: defaultPadding),
+                    // Game mode selection buttons row
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _GameModeButton(
-                          title: "1 vs 1",
-                          onPressed: () {
-                            // Navigator.pushNamed(context, createGameRoom1vs1ScreenRoute);  // Navigate to Game 1v1
-                          },
+                        Expanded(
+                          child: _GameModeButton(
+                            title: "1 vs 1",
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, createGameRoom1vs1ScreenRoute);
+                            },
+                          ),
                         ),
-                        _GameModeButton(
-                          title: "2 vs 2",
-                          onPressed: () {
-                            // Navigator.pushNamed(context, createGameRoom2vs2ScreenRoute);  // Navigate to Game 2v2
-                          },
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          child: _GameModeButton(
+                            title: "2 vs 2",
+                            onPressed: () {
+                              // Navigate to Game 2v2
+                            },
+                          ),
                         ),
                       ],
                     ),
                     const SizedBox(height: defaultPadding),
-                    _GameModeButton(
-                      title: "Join Room",
-                      onPressed: () {
-                        // Navigator.pushNamed(context, joinRoomScreenRoute);  // Navigate to Join Room
-                      },
+
+                    // Room ID input and Join Room button row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            width: 300,
+                            child: TextField(
+                              controller: _roomIdController,
+                              decoration: const InputDecoration(
+                                labelText: 'Enter Room ID',
+                                hintText: 'Room ID',
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          child: _GameModeButton(
+                            title: "Join Room",
+                            onPressed: () {
+                              String roomId = _roomIdController.text.trim();
+                              if (roomId.isNotEmpty) {
+                                Navigator.pushNamed(
+                                  context,
+                                  joinGameRoom1vs1ScreenRoute,
+                                  arguments: roomId, // Passing roomId as argument
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Please enter a valid room ID"),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

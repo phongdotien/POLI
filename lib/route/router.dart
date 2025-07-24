@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/entry_point.dart';
+import 'package:shop/screens/make_game/views/join_game_screen.dart';
 import 'package:shop/screens/make_game/views/make_game_screen.dart';
 
 import 'screen_export.dart';
@@ -80,6 +81,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case createGameRoom1vs1ScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const MakeGameScreen(),
+      );
+    case joinGameRoom1vs1ScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => JoinGameScreen(gameId: settings.arguments as String),
       );
     case signUpScreenRoute:
       return MaterialPageRoute(

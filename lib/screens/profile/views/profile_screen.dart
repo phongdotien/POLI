@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop/components/list_tile/divider_list_tile.dart';
@@ -10,6 +11,21 @@ import 'components/profile_menu_item_list_tile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
+  void _logout(BuildContext context) async {
+    try {
+      // Sign out from Firebase
+      await FirebaseAuth.instance.signOut();
+
+      // After signing out, navigate back to the login screen
+      Navigator.pushReplacementNamed(context, logInScreenRoute);
+    } catch (e) {
+      // Handle any errors during sign-out
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("An error occurred during logout")),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +172,7 @@ class ProfileScreen extends StatelessWidget {
 
           // Log Out
           ListTile(
-            onTap: () {},
+            onTap: () => _logout(context), // Call the logout function when tapped
             minLeadingWidth: 24,
             leading: SvgPicture.asset(
               "assets/icons/Logout.svg",

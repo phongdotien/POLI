@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shop/components/dot_indicators.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/route/route_constants.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
 
 import 'components/onbording_content.dart';
 
@@ -56,7 +57,20 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
   @override
   void initState() {
     _pageController = PageController(initialPage: 0);
+    _checkUserLoginStatus(); // Check if the user is logged in
     super.initState();
+  }
+
+  // Check if the user is already logged in
+  Future<void> _checkUserLoginStatus() async {
+    User? user =
+        FirebaseAuth.instance.currentUser; // Check if the user is logged in
+    if (user != null) {
+      // If user is logged in, navigate directly to the entry point screen after the build phase
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, entryPointScreenRoute);
+      });
+    }
   }
 
   @override

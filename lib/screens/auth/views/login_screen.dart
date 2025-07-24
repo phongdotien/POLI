@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushNamedAndRemoveUntil(
             context, entryPointScreenRoute, ModalRoute.withName(logInScreenRoute));
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Login failed. Please check your credentials."),
         ));
       }
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         TextFormField(
                           controller: _emailController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: "Email",
                           ),
                           validator: (value) {
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           controller: _passwordController,
                           obscureText: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: "Password",
                           ),
                           validator: (value) {

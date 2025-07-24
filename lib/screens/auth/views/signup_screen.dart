@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/screens/auth/views/components/auth_service.dart';
 import 'package:shop/screens/auth/views/components/sign_up_form.dart';
 import 'package:shop/route/route_constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
 
 import '../../../constants.dart';
 
@@ -16,7 +17,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
-  final AuthService _authService = AuthService(); // Create instance of AuthService
+  final AuthService _authService =
+      AuthService(); // Create instance of AuthService
   bool _isLoading = false;
 
   // Controllers for email and password
@@ -30,8 +32,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
 
     User? user = await _authService.signUp(email, password);
-    
+
     if (user != null) {
+      await _initializeUserData(user);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Registration successful! Welcome ${user.email}"),
       ));
@@ -50,6 +53,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       _isLoading = false;
     });
+  }
+
+// Method to initialize user data in Firestore
+  Future<void> _initializeUserData(User user) async {
+    try {
+      // Reference to the Firestore 'users' collection
+      CollectionReference users =
+          FirebaseFirestore.instance.collection('users');
+
+      // Initialize user data with default values: Rank: 2.0, Score: 0
+      await users.doc(user.uid).set({
+        // Use .doc(user.uid) to set the document ID to the user's UID
+        'email': user.email,
+        'rank_single': 2.0, // Default rank
+        'score_single': 0, // Default score
+        'rank_dual': 2.0, // Default rank
+        'score_dual': 0, // Default score
+        'time': FieldValue.serverTimestamp(), // Timestamp
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Failed to initialize user data."),
+      ));
+    }
   }
 
   @override
@@ -80,11 +107,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: defaultPadding),
                   SignUpForm(
                     formKey: _formKey,
-                    emailController: _emailController,  // Pass the controller
-                    passwordController: _passwordController,  // Pass the controller
+                    emailController: _emailController, // Pass the controller
+                    passwordController:
+                        _passwordController, // Pass the controller
                     isLoading: _isLoading,
                     onSubmit: (email, password) {
-                      _signUp(email, password); // Pass email and password to _signUp method
+                      _signUp(email,
+                          password); // Pass email and password to _signUp method
                     },
                   ),
                   const SizedBox(height: defaultPadding),

@@ -109,7 +109,7 @@ class SignUpForm extends StatelessWidget {
                     }
                   },
             child: isLoading
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : const Text("Continue"),
           ),
         ],
